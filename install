@@ -55,5 +55,10 @@ chmod 755 /etc/init.d/vpnserver
 update-rc.d vpnserver defaults
 systemctl start vpnserver
 systemctl status vpnserver
+ip=$(curl check-host.net/ip)
 iptables -A INPUT -p tcp --dport 80 -j REJECT
+echo net.ipv4.ip_forward = 1 >> /etc/sysctl.conf
+iptables -t nat -A POSTROUTING -s 192.168.30.0/24 -j SNAT --to-source $ip
+iptables -A FORWARD -s 192.168.30.0/24 -j ACCEPT
+iptables -A FORWARD -p all -m state --state ESTABLISHED,RELATED -j ACCEPT
 netfilter-persistent save
