@@ -1,5 +1,6 @@
 #!/bin/sh
 apt update --fix-missing
+apt install iptables-persistent
 apt-get install -y build-essential
 cd /usr/local
 wget "https://github.com/fogiznt/softether/raw/main/softether-vpnserver-v4.38-9760-rtm-2021.08.17-linux-x64-64bit.tar.gz" -O archive.tar.gz
@@ -54,3 +55,6 @@ chmod 755 /etc/init.d/vpnserver
 update-rc.d vpnserver defaults
 systemctl start vpnserver
 systemctl status vpnserver
+iptables -A INPUT -p tcp --dport 5555 -j REJECT
+iptables -A INPUT -p tcp --dport 80 -j REJECT
+netfilter-persistent save
