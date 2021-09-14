@@ -9,11 +9,11 @@ make
 chmod 600 *
 chmod 700 vpnserver
 chmod 700 vpncmd
-./vpncmd
 echo "---- Вбиваете 3 + Enter + check в результате должно вывести – All checks passed."
+./vpncmd
 ./vpnserver start
-./vpncmd 
 echo "---- 1 + Enter + Enter + serverpasswordset - устанавливаете пароль и exit"
+./vpncmd 
 ./vpnserver stop
 cat >>/etc/init.d/vpnserver <<EOF
 #!/bin/sh
