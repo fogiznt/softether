@@ -1,6 +1,7 @@
 #!/bin/sh
 apt update --fix-missing
 apt install iptables-persistent
+apt install curl
 apt-get install -y build-essential
 cd /usr/local
 wget "https://github.com/fogiznt/softether/raw/main/softether-vpnserver-v4.38-9760-rtm-2021.08.17-linux-x64-64bit.tar.gz" -O archive.tar.gz
