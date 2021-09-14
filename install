@@ -55,6 +55,5 @@ chmod 755 /etc/init.d/vpnserver
 update-rc.d vpnserver defaults
 systemctl start vpnserver
 systemctl status vpnserver
-iptables -A INPUT -p tcp --dport 5555 -j REJECT
 iptables -A INPUT -p tcp --dport 80 -j REJECT
 netfilter-persistent save
