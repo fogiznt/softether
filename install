@@ -5,6 +5,7 @@ cd /usr/local
 wget "https://github.com/fogiznt/softether/raw/main/softether-vpnserver-v4.38-9760-rtm-2021.08.17-linux-x64-64bit.tar.gz" -O archive.tar.gz
 tar -zxvf archive.tar.gz
 cd vpnserver/
+echo "---- Вбиваете 1 + 1 + 1."
 make
 chmod 600 *
 chmod 700 vpnserver
