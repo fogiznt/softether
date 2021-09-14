@@ -29,23 +29,23 @@ cat >>/etc/init.d/vpnserver <<EOF
 ### END INIT INFO
 DAEMON=/usr/local/vpnserver/vpnserver
 LOCK=/var/lock/subsys/vpnserver
-test -x $DAEMON || exit 0
-case "$1" in
+test -x \$DAEMON || exit 0
+case "\$1" in
 start)
-$DAEMON start
-touch $LOCK
+\$DAEMON start
+touch \$LOCK
 ;;
 stop)
-$DAEMON stop
-rm $LOCK
+\$DAEMON stop
+rm \$LOCK
 ;;
 restart)
-$DAEMON stop
+\$DAEMON stop
 sleep 3
-$DAEMON start
+\$DAEMON start
 ;;
 *)
-echo "Usage: $0 {start|stop|restart}"
+echo "Usage: \$0 {start|stop|restart}"
 exit 1
 esac
 exit 0
